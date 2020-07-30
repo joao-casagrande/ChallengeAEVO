@@ -346,10 +346,14 @@
       <div class="tab-pane fade show active" id="name" role="tabpanel" aria-labelledby="name-tab">
         <!-- Input -->
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Nome do local" aria-label="Nome do local" aria-describedby="button-name">
+          <input type="text" class="form-control" id="input_name" placeholder="Nome do local" aria-label="Nome do local" aria-describedby="button_name">
+          
           <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="button" id="button-name">Enviar</button>
+            <button class="btn btn-outline-secondary" type="button" id="button_name">Enviar</button>
           </div>
+        </div>
+        <div id="input_name_valid" class="invalid-feedback">
+          <span class="tab">Por favor, insira um nome.</span>
         </div>
 
 

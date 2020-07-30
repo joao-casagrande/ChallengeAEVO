@@ -17,8 +17,41 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script>
     $(document).ready(function(){
-      $('#button-addon2').click(function(){
-        console.log('Foi!');
+      let tk = "b3e6270664e9814c18190f1666215c73";
+
+
+      $('#button_name').click(function(){
+        let name = $('#input_name').val();
+        if(name.length<2){
+          $('#input_name_valid').addClass('d-block');
+        } else{
+          $('#input_name_valid').removeClass('d-block');
+
+          let url = 'http://api.weatherstack.com/current?access_key='+tk+'&query='+name+'/';
+          console.log(url);
+          
+
+
+          $.ajax({
+            type:"get",
+            url:url,
+            success: function(response){
+              console.log("[RESPONSE] ",response);
+              if(response.error){
+                console.log('Erro!')
+
+              } else{
+
+                console.log('Foiiii!')
+
+              }
+            },
+            error: function(request, status, error){
+              console.log('Erro2!')
+            }
+          });
+        }
+        
 
       })
 
