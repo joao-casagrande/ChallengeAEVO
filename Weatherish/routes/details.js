@@ -3,10 +3,10 @@
 module.exports = function(app){
 
 	//+------------------------------------------------------------------+
-	//| POST '/search'                                    |
+	//| GET '/details'                                    |
 	//+------------------------------------------------------------------+
-	app.post('/search/name', function(request, response) {
-		app.controllers.search.getByName(app,request,response);
+	app.get('/details/:name', function(request, response) {
+		app.controllers.details.getByName(app,request,response);
 	});
 
 	

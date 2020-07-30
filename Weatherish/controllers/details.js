@@ -2,7 +2,7 @@ var reqlib = require('request');
 
 module.exports.getByName = function(app, request, response){
 		
-		let name = request.body.name;
+		let name = request.params.name;
 		let tk = app.locals.configJSON.token;
 		
 		let base_url = 'http://api.weatherstack.com/current?access_key='+tk+'&query='+name+'/';
@@ -20,8 +20,8 @@ module.exports.getByName = function(app, request, response){
 					response.status(400).json(body1);
 					
 				} else{
-					
-					response.status(200).json(body1);
+					//console.log(JSON.stringify(body1));
+					response.render("details.ejs", {data: body1});
 					
 				}
 			} else {

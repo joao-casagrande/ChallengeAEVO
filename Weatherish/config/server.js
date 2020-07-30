@@ -14,6 +14,8 @@ let app = express();
 //allow OPTIONS on all resources
 //app.options('*', cors());
 
+app.use('/public', express.static('public'));
+
 
 // engine de visualização
 app.set('view engine', 'ejs');
