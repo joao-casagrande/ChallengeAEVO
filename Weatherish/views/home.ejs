@@ -15,13 +15,14 @@
  <%- include("../partials/toolbar") %>
 </div>
 
-<div class="content" role="main">
+<div class="content" style="background-color: #fff" role="main">
+	
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item">
-        <a class="nav-link active" id="name-tab" data-toggle="tab" href="#name" role="tab" aria-controls="name" aria-selected="true">Consulta por nome</a>
+        <a class="nav-link active" id="name-tab" data-toggle="tab" href="#name" role="tab" aria-controls="name" aria-selected="true">Search by name</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="zip-tab" data-toggle="tab" href="#zip" role="tab" aria-controls="zip" aria-selected="false">Consulta por CEP/ZIP</a>
+        <a class="nav-link" id="zip-tab" data-toggle="tab" href="#zip" role="tab" aria-controls="zip" aria-selected="false">Search by ZIP code</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" id="coord-tab" data-toggle="tab" href="#coord" role="tab" aria-controls="coord" aria-selected="false">Consulta por coordenadas</a>
@@ -38,26 +39,79 @@
       <br>
       <div class="tab-pane fade show active" id="name" role="tabpanel" aria-labelledby="name-tab">
         <!-- Input -->
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" id="input_name" placeholder="Nome do local" aria-label="Nome do local" aria-describedby="button_name">
-          
-          <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="button" id="button_name">Enviar</button>
-          </div>
-        </div>
-        <div id="input_name_valid" class="invalid-feedback">
-          <span class="tab">Por favor, insira um nome.</span>
-        </div>
+		<div class="row">
+			<div class="col-md-12-sm-12">
+				 <div class="input-group mb-3">
+				  <input type="text" class="form-control" id="input_name" placeholder="Local name" aria-label="Local name" aria-describedby="button_name">
+				  
+				  <div class="input-group-append">
+					<button class="btn btn-secondary" type="button" id="button_name">Send</button>
+				  </div>
+				</div>
+				<div id="input_name_valid" class="invalid-feedback">
+				  
+				</div>
+			</div>
+		</div>
+		
+       
 
 
 
       </div>
-      <div class="tab-pane fade" id="zip" role="tabpanel" aria-labelledby="zip-tab">..</div>
-      <div class="tab-pane fade" id="coord" role="tabpanel" aria-labelledby="coord-tab">...</div>
+      <div class="tab-pane fade" id="zip" role="tabpanel" aria-labelledby="zip-tab">
+		<!-- Input -->
+		<div class="row">
+			<div class="col-md-12-sm-12">
+				 <div class="input-group mb-3">
+				  <input type="text" class="form-control" id="input_zip" placeholder="ZIP code" aria-label="ZIP code" aria-describedby="button_zip">
+				  
+				  <div class="input-group-append">
+					<button class="btn btn-secondary" type="button" id="button_zip">Send</button>
+				  </div>
+				</div>
+				<div id="input_zip_valid" class="invalid-feedback">
+				  
+				</div>
+			</div>
+		</div>
+	  
+	  
+	  </div>
+      <div class="tab-pane fade" id="coord" role="tabpanel" aria-labelledby="coord-tab">
+	  <!-- Input -->
+		<div class="row">
+			<div class="col-md-12-sm-12">
+				 <div class="input-group">
+				  <div class="input-group-prepend">
+					<span class="input-group-text" id="">Coordinates</span>
+				  </div>
+				  <input type="text" id="coord_lat" placeholder="Latitude" class="form-control">
+				  <input type="text" id="coord_lon" placeholder="Longitude" class="form-control">
+				  
+				  <div class="input-group-append">
+					<button class="btn btn-secondary" type="button" id="button_coords">Send</button>
+				  </div>
+				</div>
+				<div id="input_coords_valid" class="invalid-feedback">
+				  <span class="tab">Invalid latitude coordinates.</span><br>
+				  <span class="tab">Invalid longitude coordinates.</span>
+				</div>
+			</div>
+		</div>
+	  
+	  
+	  </div>
       <div class="tab-pane fade" id="ip" role="tabpanel" aria-labelledby="ip-tab">....</div>
       <div class="tab-pane fade" id="local" role="tabpanel" aria-labelledby="local-tab">.....</div>
     </div>
+</div>
 
+<div class="content" role="main">
+	
+	<div id="result_placeholder" >
+		
+	</div>
 </div>
 
 
