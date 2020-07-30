@@ -14,7 +14,7 @@
 <div class="toolbar" role="banner">
  <%- include("../partials/toolbar") %>
 </div>
-
+<div class="content">
 	<%
 	let view_data = null;
 	if(typeof(data)!="undefined"){
@@ -31,7 +31,7 @@
 	%>
 	
 	
-	<div class="content">
+	
 
 
 		<div class="row">
@@ -117,12 +117,12 @@
 			</div>
 			
 		</div>
-	</div>
+	
 <%} else{%>
 	<img src="https://assets.prestashop2.com/sites/default/files/blog/pt/files/2013/12/http_code_404_error.jpg">
 
 <%}%>
-
+</div>
 
 
 

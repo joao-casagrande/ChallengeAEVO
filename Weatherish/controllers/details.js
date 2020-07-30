@@ -17,7 +17,7 @@ module.exports.getByName = function(app, request, response){
 				body1 = JSON.parse(body1);
 				if(body1.error){
 					
-					response.status(400).json(body1);
+					response.render("details.ejs", {error: []});
 					
 				} else{
 					//console.log(JSON.stringify(body1));
@@ -26,7 +26,7 @@ module.exports.getByName = function(app, request, response){
 				}
 			} else {
 				
-				response.status(400).json(error);
+				response.render("details.ejs", {error: []});
 				
 			}
 		});
