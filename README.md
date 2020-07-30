@@ -40,6 +40,6 @@ Há 5 métodos de utilizar esta aplicação<br>
 1. Pesquisar pela sua localização atual<br>
 
 
-Qualquer dúvida, só chamar!<br>
-[Telegram](https://t.me/Jacs1809)
+Qualquer dúvida, só me chamar pelo
+[Telegram!](https://t.me/Jacs1809)
   
