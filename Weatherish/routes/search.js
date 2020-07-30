@@ -30,12 +30,7 @@ module.exports = function(app){
 		app.controllers.search.getByIP(app,request,response);
 	});
 	
-	//+------------------------------------------------------------------+
-	//| POST '/search/myip'                                    |
-	//+------------------------------------------------------------------+
-	app.post('/search/myip', function(request, response) {
-		app.controllers.search.getByMyIP(app,request,response);
-	});
+	
 
 	
 }

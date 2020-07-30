@@ -33,23 +33,15 @@ module.exports.getByCoords = function(app, request, response){
 
 module.exports.getByIP = function(app, request, response){
 		
-		let name = request.body.name;
+		let ip = request.body.ip;
 		let tk = app.locals.configJSON.token;
 		
-		let base_url = 'http://api.weatherstack.com/current?access_key='+tk+'&query='+lat+','+lon+'/';
+		let base_url = 'http://api.weatherstack.com/current?access_key='+tk+'&query='+ip;
 		doRequest(base_url, response);
 		
 };
 
-module.exports.getByMyIP = function(app, request, response){
-		
-		let name = request.body.name;
-		let tk = app.locals.configJSON.token;
-		
-		let base_url = 'http://api.weatherstack.com/current?access_key='+tk+'&query='+name+'/';
-		doRequest(base_url, response);
-		
-};
+
 
 function doRequest(base_url, response){
 		var options = {

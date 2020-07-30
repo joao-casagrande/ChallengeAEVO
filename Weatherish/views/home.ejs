@@ -25,13 +25,13 @@
         <a class="nav-link" id="zip-tab" data-toggle="tab" href="#zip" role="tab" aria-controls="zip" aria-selected="false">Search by ZIP code</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="coord-tab" data-toggle="tab" href="#coord" role="tab" aria-controls="coord" aria-selected="false">Consulta por coordenadas</a>
+        <a class="nav-link" id="coord-tab" data-toggle="tab" href="#coord" role="tab" aria-controls="coord" aria-selected="false">Search by coordinates</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="ip-tab" data-toggle="tab" href="#ip" role="tab" aria-controls="ip" aria-selected="false">Consulta por IP</a>
+        <a class="nav-link" id="ip-tab" data-toggle="tab" href="#ip" role="tab" aria-controls="ip" aria-selected="false">Search by IP</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="local-tab" data-toggle="tab" href="#local" role="tab" aria-controls="local" aria-selected="false">Consulta sua localização</a>
+        <a class="nav-link" id="local-tab" data-toggle="tab" href="#local" role="tab" aria-controls="local" aria-selected="false">Check your location</a>
       </li>
     </ul>
 
@@ -102,8 +102,51 @@
 	  
 	  
 	  </div>
-      <div class="tab-pane fade" id="ip" role="tabpanel" aria-labelledby="ip-tab">....</div>
-      <div class="tab-pane fade" id="local" role="tabpanel" aria-labelledby="local-tab">.....</div>
+      <div class="tab-pane fade" id="ip" role="tabpanel" aria-labelledby="ip-tab">
+		 <!-- Input -->
+			<div class="row">
+				<div class="col-md-12-sm-12">
+					 <div class="input-group mb-3">
+					  <input type="text" class="form-control" id="input_ip" placeholder="xxx.xxx.xxx.xxx" aria-label="xxx.xxx.xxx.xxx" aria-describedby="button_ip">
+					  
+					  <div class="input-group-append">
+						<button class="btn btn-secondary" type="button" id="button_ip">Send</button>
+					  </div>
+					</div>
+					<div id="input_ip_valid" class="invalid-feedback">
+					  
+					</div>
+				</div>
+			</div>
+		</div>
+      <div class="tab-pane fade" id="local" role="tabpanel" aria-labelledby="local-tab">
+	  <!-- Input -->
+		<div class="row">
+			<div class="col-md-12-sm-12">
+				 
+				 <div class="row">
+					<div class="col-md-12-sm-12">
+						<h5>Your ip is: </h5>
+						<h5 id="client_ip"></h5>
+					</div>
+				 </div>
+				 <div class="row">
+					<div class="col-md-12-sm-12">
+						<button class="btn btn-secondary" type="button" id="button_local">Show me!</button>
+					</div>
+				 
+				 </div>
+				 
+				  
+				
+				<div id="input_local_valid" class="invalid-feedback">
+				  
+				</div>
+			</div>
+		</div>
+	  
+	  
+	  </div>
     </div>
 </div>
 
