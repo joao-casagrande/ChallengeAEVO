@@ -27,7 +27,7 @@ Para começar a utilizá-lo, é bem simples.
   `<br>
   Senão,<br>
   `
-  *your_ip*:3100
+  *seu_ip*:3100
   `<br>
   1. Aproveite!
 
