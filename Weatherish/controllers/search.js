@@ -1,4 +1,6 @@
 var reqlib = require('request');
+const fs = require('fs')
+
 
 module.exports.getByName = function(app, request, response){
 		
@@ -56,6 +58,7 @@ function doRequest(base_url, response){
 					
 					body1.location.region = decode_utf8(body1.location.region);
 					
+					addToRecent(body1.location.name, body1)
 					
 					
 					response.status(200).json(body1);
@@ -75,6 +78,72 @@ function doRequest(base_url, response){
 		});
 	
 }
+
+function addToRecent(name, json){
+	
+	
+	
+	fs.readFile('./etc/recent.json', 'utf8', (err, jsonString) => {
+		if (err) {
+			console.log("File read failed:", err)
+			return
+		}
+		
+		let recent = JSON.parse(jsonString);
+		
+		console.log(recent);
+		
+		
+		let ok = false;
+		for(let i = 0; i<recent.searchs.length; i++){
+			if(recent.searchs[i][0] == name){
+				
+				recent.searchs[i] = [name,json];
+				ok = true;
+				WriteFile(recent);
+				
+				
+			}
+			
+		}
+		
+		if(!ok){
+			
+			if(recent.searchs.length == 5){
+				recent.searchs.shift();
+				recent.searchs.push([name,json])
+				WriteFile(recent);
+				
+			} else{
+				recent.searchs.push([name,json])
+				WriteFile(recent);
+			}
+			
+			
+		}
+	})
+	
+	
+	
+	
+	
+}
+
+function WriteFile(recent){
+	let jsonString2 = JSON.stringify(recent);
+	
+	fs.writeFile('./etc/recent.json', jsonString2, err => {
+		if (err) {
+			console.log('Error writing file', err)
+		} else {
+			console.log('Successfully wrote file')
+		}
+	})
+	
+	
+	
+}
+
 
 function decode_utf8(s) {
   return decodeURIComponent(escape(s));

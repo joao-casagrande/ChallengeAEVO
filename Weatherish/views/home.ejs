@@ -148,7 +148,130 @@
 	  
 	  </div>
     </div>
+	
+	<%
+	let view_data = null;
+	if(typeof(recent) != "undefined"){
+	
+		view_data = JSON.parse(recent);
+		var lst = ["One", "Two", "Three", "Four", "Five"];
+	}
+	
+	if(view_data){
+		if(view_data.searchs){
+			if(view_data.searchs.length>0){
+	
+	%>
+	
+	
+	
+	<h5>Previous searchs <button id="clear_history" class="btn btn-secondary"><i class="fas fa-trash-alt x1"></i></button></h5>
+	
+	<div id="previous_searchs" >
+		<%
+				for(let i=0; i<view_data.searchs.length;i++){
+				
+				}
+			
+			
+			%>
+				<div class="table-responsive">
+				  <table class="table">
+					<thead>
+					  <tr>
+						<th scope="col">#</th>
+						<th scope="col">Location</th>
+						<th scope="col">Region</th>
+						<th scope="col">Temperature</th>
+					  </tr>
+					</thead>
+					<tbody>
+					
+					<%
+					for(let i=0; i<view_data.searchs.length;i++){
+						var id_collapse = "#collapse"+lst[i];
+						var id_collapse2 = "collapse"+lst[i];
+						%>
+						<tr class="accordion-toggle collapsed" id="accordion1" data-toggle="collapse" data-parent="#accordion1" href=<%=id_collapse%>>
+						<td class="expand-button"></td>
+						<td><%=view_data.searchs[i][1].location.name%></td>
+						<td><%=view_data.searchs[i][1].location.region%></td>
+						<td><%=view_data.searchs[i][1].current.temperature%>ºC</td>
+
+						</tr>
+						<tr class="hide-table-padding">
+						<td></td>
+						<td colspan="3">
+						
+							<div id="<%=id_collapse2%>" class="collapse in p-3">
+							<div class="row">
+								<img src="">
+							  </div>
+							  <div class="row">
+								<div class="col-6">Wind Speed</div>
+								<div class="col-6"><%=view_data.searchs[i][1].current.wind_speed%> km/h</div>
+							  </div>
+							  <div class="row">
+								<div class="col-6">Wind Direction</div>
+								<div class="col-6"><%=view_data.searchs[i][1].current.wind_dir%></div>
+							  </div>
+							  <div class="row">
+								<div class="col-6">Description</div>
+								<%
+								let desc = "";
+								
+								for(j=0; j<view_data.searchs[i][1].current.weather_descriptions.length; j++){
+									desc += view_data.searchs[i][1].current.weather_descriptions[j];
+									
+									if(j!=view_data.searchs[i][1].current.weather_descriptions.length-1){
+										desc+= ", ";
+									
+									}
+								}
+								
+								
+								%>
+								
+								
+								<div class="col-6"><%=desc%></div>
+							  </div>
+							   <div class="row">
+								<div class="col-6">Data time</div>
+								<div class="col-6"><%=view_data.searchs[i][1].current.observation_time%></div>
+							  </div>
+							  
+							  
+							</div>
+							</td>
+						</tr>
+					
+					
+					
+					
+					<%}%>
+					  
+							  
+					</tbody>
+				  </table>
+				</div>
+					
+		
+			<%}
+		
+			}
+		}
+	
+	
+	%>
+	</div>
+	
+	
+	
 </div>
+
+
+
+
 
 <div class="content" role="main">
 	

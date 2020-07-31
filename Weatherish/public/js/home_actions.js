@@ -277,7 +277,32 @@ $(document).ready(function() {
         }
     });
 
+	$("#clear_history").click(function(){
+		$('#clear_history').html('<i class="fas fa-spin fa-spinner"></i>')
+        $('#clear_history').prop('disabled', true);
+		$.ajax({
+            type: "get",
+            url: "/clear",
+            success: function(response) {
+               $('#clear_history').prop('disabled', false);
+				$('#clear_history').html('<i class="fas fa-trash-alt x1"></i>')
+				window.location.reload();
+				
 
+            },
+            error: function(request, status, error) {
+                $('#clear_history').prop('disabled', false);
+				$('#clear_history').html('<i class="fas fa-trash-alt x1"></i>')
+            }
+        });
+		
+		
+		
+		
+	});
+	
+	
+	
 });
 
 function doWork(response) {
@@ -286,6 +311,17 @@ function doWork(response) {
     let time = new Date(data.location.localtime);
     let h = time.getHours();
     let m = time.getMinutes();
+	
+	if(h == 0){
+		
+		h = "00";
+	}
+	
+	if(m == 0){
+		
+		m = "00";
+	}
+	
 
     let desc = "";
     for (let i = 0; i < data.current.weather_descriptions.length; i++) {
@@ -387,9 +423,9 @@ function doWork(response) {
     html += ' <div class="card h-100" style="width: 22rem;">';
     html += ' <div class="card-body">';
     html += ' <h5 class="card-title">Details</h5>';
-    html += ' <span class="float-left">Pressure</span><span class="float-right">' + data.current.pressure + '</span><br>';
+    html += ' <span class="float-left">Pressure</span><span class="float-right">' + data.current.pressure + ' MB</span><br>';
     html += ' <hr>';
-    html += ' <span class="float-left">Precipitation </span><span class="float-right">' + data.current.precip + '%</span><br>';
+    html += ' <span class="float-left">Precipitation </span><span class="float-right">' + data.current.precip + ' MM</span><br>';
     html += ' <hr>';
     html += ' <span class="float-left">Humidity</span><span class="float-right">' + data.current.humidity + '%</span><br>';
 
@@ -404,7 +440,7 @@ function doWork(response) {
     html += ' <h5 class="card-title">&nbsp</h5>';
     html += ' <span class="float-left">UV Index</span><span class="float-right">' + data.current.uv_index + '</span><br>';
     html += ' <hr>';
-    html += ' <span class="float-left">Visibility </span><span class="float-right">' + data.current.visibility + '</span><br>';
+    html += ' <span class="float-left">Visibility </span><span class="float-right">' + data.current.visibility + ' km/h</span><br>';
     html += ' <hr>';
     html += ' <span class="float-left">Coordinates</span><span class="float-right">' + data.location.lat + ', ' + data.location.lon + '</span><br>';
 
